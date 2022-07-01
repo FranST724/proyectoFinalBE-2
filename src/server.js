@@ -1,11 +1,15 @@
 import express from 'express';
-
+import productosRouter from './routes/ProductosRoutes.js';
+import carritosRouter from './routes/CarritosRoutes.js';
 const app = express();
 
 app.use(express.json());
 
-const PORT = 8080;
+//routes
+app.use('/api/productos', productosRouter);
+app.use('/api/carritos', carritosRouter);
 
+const PORT = 8080;
 app.listen(PORT, () => {
 	console.log(`Escuchando al puerto ${PORT}`);
 });
